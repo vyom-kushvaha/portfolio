@@ -1,0 +1,245 @@
+.about-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #121313;
+  border-top: 1px solid #333;
+  padding: 85px 4.5% 35px;
+  color: #f2f1ef;
+}
+.about-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: .055;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.88' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23fff' filter='url(%23n)' opacity='.65' d='M0 0h180v180H0z'/%3E%3C/svg%3E");
+}
+.about-inner { max-width: 1450px; margin: auto; }
+.about-heading { display: flex; justify-content: space-between; align-items: center; margin-bottom: 55px; }
+.about-eyebrow { font-size: 10px; letter-spacing: 3px; color: #c4bab5; margin: 0 0 20px; }
+.about-heading h2 { font: normal clamp(36px, 4vw, 62px)/1.08 Georgia, serif; letter-spacing: -1.8px; margin: 0; }
+.about-heading h2 em { color: #edc6bd; font-weight: normal; }
+.about-note { font: 28px/.95 Caveat, cursive; color: #dbb9af; transform: rotate(-7deg); padding-right: 25px; }
+.about-note span { display: block; font-size: 42px; color: #ff7b6e; margin: 12px 0 0 25px; }
+.about-map { display: grid; grid-template-columns: 1fr 1.05fr 1fr; gap: 36px; align-items: center; }
+.interest-column { display: grid; gap: 20px; position: relative; z-index: 1; }
+.interest-card { position: relative; display: grid; grid-template-columns: 46px 1fr; gap: 18px; padding: 32px 22px 25px; border: 1px solid #44403d; border-radius: 3px 15px 3px 15px; background: linear-gradient(125deg, #24232165, #12131380); min-height: 180px; transition: border-color .25s, background .25s; }
+.interest-card:hover { border-color: #b08173; background: #24201c90; }
+.interest-card::after { content: ""; position: absolute; width: 37px; height: 1px; background: linear-gradient(90deg, #bda198, #bda19822); right: -38px; top: 50%; }
+.interest-column--right .interest-card::after { left: -38px; right: auto; transform: rotate(180deg); }
+.interest-number { position: absolute; top: 10px; left: 15px; font-size: 9px; letter-spacing: 1.5px; color: #a49e99; }
+.interest-icon { width: 46px; height: 48px; display: grid; place-items: center; border: 1px solid #51423c; color: #ff7b6e; }
+.interest-icon svg { width: 25px; height: 25px; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; overflow: visible; }
+.interest-card h3 { font: normal clamp(20px, 1.8vw, 28px)/1.1 Georgia, serif; margin: 0; letter-spacing: -.4px; }
+.interest-rule { display: block; width: 22px; height: 2px; background: #ff7b6e; margin: 13px 0 11px; }
+.interest-card p { margin: 0; font-size: 12px; line-height: 1.65; color: #bdb8b4; }
+.about-identity { position: relative; text-align: center; min-width: 0; }
+.identity-orbit { position: relative; aspect-ratio: 1; border: 1px solid #9e7c686b; border-radius: 50%; background: radial-gradient(ellipse, #b3846625 0%, #9a71670c 50%, transparent 72%); display: grid; place-items: center; margin: 15px -10px 0; }
+.identity-orbit::before { content: ""; position: absolute; inset: -17px; border: 1px dashed #b8907440; border-radius: 50%; }
+.identity-orbit::after { content: ""; position: absolute; inset: 14%; border: 1px solid #bc9b8118; border-radius: 50%; }
+.identity-monogram { font: normal clamp(95px, 13vw, 205px)/1 Georgia, serif; letter-spacing: -23px; padding-right: 22px; color: #efdfd2; text-shadow: 0 6px 40px #b38b6130; }
+.identity-monogram > span { position: relative; top: 19px; color: #dfb7a9; font-style: italic; margin-left: -10px; }
+.orbit-coordinate { position: absolute; top: 12%; font-size: 8px; letter-spacing: 2.7px; color: #b8a499; }
+.orbit-dot { position: absolute; width: 6px; height: 6px; background: #ff897b; border-radius: 50%; box-shadow: 0 0 12px #ff897b80; z-index: 1; }
+.orbit-dot--one { left: -3px; top: 50%; }.orbit-dot--two { right: -3px; top: 50%; }
+.identity-cross { position: absolute; bottom: 10%; font-size: 20px; font-weight: 400; color: #bc8978; }
+.identity-caption { margin: 35px 0 18px; font-size: 8px; letter-spacing: 2px; color: #a8a09a; }
+.identity-title { font: normal clamp(42px, 4.5vw, 70px)/.95 Georgia, serif; margin: 0; letter-spacing: -2px; }
+.identity-title > span { display: block; font: 1.35em/.85 Caveat, cursive; color: #fa8b7c; transform: rotate(-8deg); margin: 5px 0 25px 45px; }
+.identity-name { font-size: 10px; letter-spacing: 4px; margin: 28px 0 15px; }
+.identity-description { font-size: 12px; color: #bcb3ac; line-height: 1.7; max-width: 250px; margin: 0 auto; }
+.about-footer { display: flex; align-items: center; justify-content: center; gap: 28px; margin: 55px auto 0; padding: 20px; border-block: 1px solid #48403b; width: fit-content; font-size: 9px; letter-spacing: 2.4px; color: #d9d0c9; }
+.about-footer i { height: 5px; width: 5px; border-radius: 50%; background: #ff7b6e; flex-shrink: 0; }
+.about-signoff { font: 23px Caveat, cursive; color: #cba89c; text-align: right; margin: 26px 0 0; }
+@media (max-width: 1100px) {
+  .about-map { gap: 22px; grid-template-columns: 1fr .9fr 1fr; }
+  .interest-card { grid-template-columns: 1fr; gap: 12px; padding: 30px 18px 22px; min-height: 230px; }
+  .interest-card::after { width: 23px; right: -24px; }
+  .interest-column--right .interest-card::after { left: -24px; }
+  .identity-monogram { letter-spacing: -16px; }
+}
+@media (max-width: 760px) {
+  .about-section { padding: 55px 22px 28px; }
+  .about-heading { margin-bottom: 30px; }
+  .about-heading h2 { font-size: 38px; }
+  .about-note { font-size: 22px; padding: 0; }
+  .about-map { grid-template-columns: 1fr 1fr; gap: 15px; }
+  .about-identity { grid-column: 1 / -1; grid-row: 1; margin: 0 auto 25px; width: min(100%, 330px); }
+  .identity-orbit { width: 230px; margin: 30px auto 0; }
+  .identity-monogram { font-size: 125px; }
+  .identity-title { font-size: 52px; }
+  .interest-column { gap: 15px; height: 100%; grid-template-rows: repeat(3, 1fr); }
+  .interest-card { min-height: 0; padding: 32px 16px 20px; align-content: start; }
+  .interest-card::after { display: none; }
+  .interest-card h3 { font-size: 23px; overflow-wrap: anywhere; }
+  .interest-card p { font-size: 12px; }
+  .about-footer { gap: 14px; flex-wrap: wrap; line-height: 1.8; margin-top: 35px; font-size: 8px; text-align: center; }
+  .about-footer i { display: none; }
+  .about-signoff { text-align: center; }
+}
+@media (max-width: 420px) {
+  .about-note { display: none; }
+  .interest-card { padding-inline: 12px; }
+  .interest-card h3 { font-size: 20px; }
+}
+/* Portrait and its diagram share one composition; the type sits over the hoodie. */
+.about-section { background: #111212; padding-top: 60px; }
+.about-heading { margin-bottom: 22px; }
+.about-heading h2 { font-size: clamp(32px, 3.3vw, 48px); }
+.about-map { position: relative; grid-template-columns: 1fr 1.38fr 1fr; gap: 38px; }
+.about-connections { position: absolute; inset: 20px 0 auto; width: 100%; height: 600px; pointer-events: none; z-index: 3; }
+.about-connections circle { filter: drop-shadow(0 0 5px #ff897d90); }
+.interest-card { min-height: 182px; border-radius: 0; border-color: #75605670; background: linear-gradient(135deg, #25211e50, #101111c9); padding: 34px 22px 25px; }
+.interest-card::before { content: ""; position: absolute; width: 13px; height: 13px; top: -1px; left: -1px; border-top: 1px solid #d7aa99; border-left: 1px solid #d7aa99; }
+.interest-card::after { width: 13px; height: 13px; top: auto; bottom: -1px; right: -1px; background: none; border-right: 1px solid #d7aa99; border-bottom: 1px solid #d7aa99; }
+.interest-column--right .interest-card::after { left: auto; right: -1px; transform: none; }
+.interest-icon { width: 48px; height: 56px; border-color: #74605460; background: #171616; }
+.interest-icon svg { width: 29px; height: 29px; }
+.interest-card h3 { font-size: clamp(21px, 1.9vw, 28px); color: #f3e9e2; }
+.interest-card p { font-size: 13px; color: #c1b7b1; line-height: 1.6; }
+.about-identity { padding-top: 0; }
+.identity-portrait { position: relative; height: 560px; margin: 0 -45px; isolation: isolate; }
+.identity-portrait img { display: block; width: 100%; height: auto; object-fit: contain; }
+.portrait-halo { position: absolute; width: 94%; aspect-ratio: 1; top: 65px; left: 3%; border: 1px solid #c59d8780; border-radius: 50%; z-index: 1; box-shadow: 0 0 65px #d99c7910, inset 0 0 65px #d99c7908; }
+.portrait-halo::before { content: ""; position: absolute; inset: -20px; border: 1px dashed #c69a6c60; border-radius: 50%; }
+.portrait-halo::after { content: "+"; position: absolute; left: calc(50% - 5px); top: -12px; font: 20px Georgia, serif; color: #edbdab; }
+.portrait-grid { position: absolute; inset: 30px -15px 40px; background-image: linear-gradient(#c0a58c0b 1px, transparent 1px), linear-gradient(90deg, #c0a58c0b 1px, transparent 1px); background-size: 48px 48px; z-index: 2; mask-image: radial-gradient(ellipse, #000, transparent 75%); }
+.portrait-label { position: absolute; top: 12px; left: 0; right: 0; text-align: center; font-size: 8px; letter-spacing: 3px; color: #bcada3; }
+.identity-title { position: relative; z-index: 4; margin: -80px -80px 0; font-size: clamp(55px, 6vw, 88px); text-shadow: 0 3px 20px #000; transform: rotate(-5deg); white-space: nowrap; }
+.identity-title > span { display: inline-block; margin: 0 0 0 4px; color: #ff9385; font-size: 1.25em; }
+.identity-title::after { content: ""; display: block; width: 78%; height: 12px; margin: 12px auto 0; border-top: 2px solid #fa8b7c; border-radius: 50%; transform: rotate(-3deg); }
+.identity-name { margin: 28px 0 13px; letter-spacing: 5px; }
+.identity-description { max-width: 290px; color: #bcada4; }
+.about-footer { margin-top: 40px; border: 1px solid #6e574b80; padding: 16px 30px; }
+.about-signoff { color: #dfb8ac; transform: rotate(-3deg); margin-right: 10px; }
+@media (min-width: 1450px) { .identity-portrait { height: 620px; } .about-connections { height: 650px; } }
+@media (max-width: 1100px) and (min-width: 761px) {
+  .about-map { gap: 20px; }
+  .interest-card { padding: 28px 15px 20px; min-height: 218px; }
+  .identity-portrait { margin-inline: -25px; height: 580px; }
+  .identity-title { font-size: 59px; white-space: normal; margin-inline: -30px; }
+  .identity-title > span { display: block; }
+  .about-connections { height: 710px; }
+}
+@media (max-width: 760px) {
+  .about-section { padding-top: 44px; }
+  .about-heading h2 { font-size: 37px; }
+  .about-map { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .about-connections { display: none; }
+  .about-identity { width: min(100%, 400px); margin-bottom: 30px; }
+  .identity-portrait { height: 450px; margin: 0 -15px; }
+  .portrait-halo { top: 60px; width: 86%; left: 7%; }
+  .identity-title { font-size: clamp(46px, 10vw, 70px); margin: -65px -10px 0; }
+  .identity-title > span { font-size: 1.25em; }
+  .identity-description { font-size: 12px; }
+  .interest-card { display: block; padding: 30px 15px 22px; min-height: 0; }
+  .interest-icon { margin-bottom: 17px; }
+  .interest-card h3 { font-size: 23px; }
+  .interest-card p { font-size: 12px; }
+  .about-footer { padding: 16px; gap: 10px; }
+}
+/* Warm paper scrapbook edition. */
+.about-heading h2 { font-family: Caveat, cursive; font-size: clamp(42px, 4.8vw, 70px); line-height: .95; transform: rotate(-3deg); }
+.about-heading h2 em { font-style: normal; color: #e8d9c1; }
+.about-heading h2::after { content: ""; display: block; width: 80%; height: 10px; margin-top: 14px; border-top: 3px solid #df8a6e; border-radius: 50%; }
+.about-map { grid-template-columns: 1fr 1.05fr 1fr; gap: 35px; }
+.about-connections, .identity-title { display: none; }
+.interest-card { border: 0; border-radius: 0; isolation: isolate; color: #272820; background: none; transform: rotate(-1deg); filter: drop-shadow(0 5px 5px #0003); min-height: 170px; }
+.interest-card::before { inset: 0; width: auto; height: auto; border: 0; z-index: -1; background: #e8ddc7; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 150 150' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='p'%3E%3CfeTurbulence baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath filter='url(%23p)' opacity='.16' d='M0 0h150v150H0z'/%3E%3C/svg%3E"); clip-path: polygon(1% 3%,8% 1%,16% 2%,24% 0,35% 2%,43% 1%,51% 2%,62% 0,71% 2%,84% 1%,96% 2%,99% 0,98% 12%,100% 22%,99% 34%,100% 49%,99% 64%,100% 77%,98% 87%,99% 98%,89% 97%,80% 100%,67% 98%,57% 99%,44% 98%,32% 100%,21% 98%,11% 99%,1% 97%,2% 86%,0 74%,1% 62%,0 51%,1% 39%,0 27%,2% 15%); }
+.interest-card::after, .interest-rule { display: none; }
+.interest-card:nth-child(2) { transform: rotate(.8deg); }
+.interest-column--right .interest-card { transform: rotate(1deg); }
+.interest-card:hover { background: none; transform: translateY(-3px); }
+.interest-card h3 { color: #282820; font-size: clamp(20px, 1.8vw, 26px); margin-bottom: 10px; }
+.interest-card p { color: #565044; font-size: 12px; }
+.interest-icon { background: none; border: none; color: #303129; width: 38px; }
+.interest-number { color: #91846e; font-size: 8px; }
+.about-identity { margin-top: -30px; }
+.identity-portrait { height: auto; margin: 0 0 30px; padding: 14px 14px 0; background: #e8ddc7; transform: rotate(-5deg); box-shadow: 0 14px 25px #0006; }
+.identity-portrait img { position: static; display: block; width: 100%; height: auto; object-fit: contain; mask-image: none; }
+.portrait-label { position: static; display: block; padding: 14px 0 18px; color: #38372f; font: 30px Caveat, cursive; letter-spacing: 0; }
+.photo-tape { position: absolute; z-index: 2; width: 98px; height: 32px; left: calc(50% - 49px); top: -15px; transform: rotate(-10deg); background: repeating-linear-gradient(90deg,#c6b68c88 0 2px,#e6d8b398 2px 4px); border-inline: 2px dashed #cabb9780; box-shadow: 0 1px 3px #0002; }
+.identity-name { color: #e8d9c1; font-size: 12px; letter-spacing: 3.5px; margin-bottom: 11px; }
+.identity-education { color: #c5b6a1; font-size: 11px; line-height: 1.8; margin: 0 auto; max-width: 330px; text-wrap: balance; }
+.education-sketch { display: block; width: 150px; height: 34px; margin: 12px auto 10px; stroke: #dc9b7c; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
+.card-scribble { position: absolute; width: 58px; height: 19px; bottom: 9px; right: 20px; stroke: #b9694c; stroke-width: 1.2; stroke-linecap: round; opacity: .65; }
+.interest-card { padding-bottom: 34px; }
+.interest-icon { position: relative; width: 38px; height: 44px; display: grid; place-items: center; padding: 0; border: 1px solid #77644865; border-radius: 3px 7px 2px 5px; background: #cfb99530; transform: rotate(-5deg); box-shadow: 2px 3px 0 #806c3912; }
+.interest-icon svg { width: 26px; height: 26px; transform: rotate(5deg); }
+.interest-column--right .interest-icon { transform: rotate(4deg); }
+.interest-column--right .interest-icon svg { transform: rotate(-4deg); }
+.identity-description { color: #aaa69d; }
+.about-footer { border: 0; border-top: 1px solid #63574955; font-size: 8px; color: #aba498; }
+.about-signoff, .about-note { color: #cbb59f; }
+@media (max-width: 1050px) { .about-map { gap: 22px; } .portrait-label { font-size: 25px; } }
+@media (max-width: 760px) { .about-map { grid-template-columns: 1fr 1fr; gap: 16px; } .about-identity { margin: 15px auto 25px; width: min(85%,340px); } .identity-portrait { margin: 0 0 30px; } .interest-card { min-height: 0; } }
+@media (max-width: 420px) { .about-map { grid-template-columns: 1fr; } .about-identity { grid-column: 1; } .interest-column { height: auto; grid-template-rows: none; } .interest-card { display: grid; grid-template-columns: 34px 1fr; gap: 14px; padding: 26px 22px; } .interest-card h3 { font-size: 23px; } }
+.identity-portrait img { filter: none; }
+.interest-column { gap: 30px; }
+.interest-card { min-height: 165px; }
+.interest-card::before { clip-path: none; border: 1px solid #e9dfcb; border-radius: 4px 18px 5px 12px; }
+.interest-card--code { width: 100%; transform: rotate(-2deg); }
+.interest-card--code::before { clip-path: polygon(0 0,93% 0,100% 16%,100% 100%,0 100%); border-radius: 0; }
+.interest-card--math { width: 94%; margin-left: 4%; }
+.interest-card--math::before { border-radius: 30px 6px 30px 6px; background-color: #dbd0b9; }
+.interest-card--people { width: 97%; }
+.interest-card--people::before { border-radius: 4px; clip-path: polygon(3% 0,100% 3%,97% 100%,0 96%); }
+.interest-card--shield { width: 96%; margin-left: 4%; }
+.interest-card--shield::before { border-radius: 4px 28px 4px 28px; background-color: #e2d1c2; }
+.interest-card--calendar { width: 100%; }
+.interest-card--calendar::before { border-radius: 2px; clip-path: polygon(0 0,100% 0,100% 86%,93% 100%,0 100%); }
+.interest-card--bulb { width: 94%; margin-left: 3%; }
+.interest-card--bulb::before { border-radius: 28px 6px 28px 6px; background-color: #ded6c6; }
+.interest-arrow { position: absolute; right: -51px; top: 48%; width: 60px; height: 44px; z-index: 3; stroke: #dfaa90; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; pointer-events: none; }
+.interest-column--right .interest-arrow { left: -52px; right: auto; transform: scaleX(-1) rotate(-8deg); }
+.interest-card--math .interest-arrow { width: 70px; right: -61px; transform: rotate(-14deg); }
+.interest-card--bulb .interest-arrow { top: 13%; transform: scaleX(-1) rotate(17deg); }
+@media (max-width: 1050px) { .interest-arrow { width: 43px; right: -32px; }.interest-column--right .interest-arrow { left: -32px; }.interest-card--math .interest-arrow { right: -37px; width: 48px; } }
+@media (max-width: 760px) { .interest-arrow { top: auto; bottom: -30px; right: 14px; width: 40px; height: 29px; transform: rotate(40deg); }.interest-column--right .interest-arrow { left: auto; right: 14px; transform: rotate(35deg); }.interest-card--math .interest-arrow { width: 40px; right: 15px; transform: rotate(40deg); }.interest-card--bulb .interest-arrow,.interest-card--people .interest-arrow { display: none; }.interest-card { width: 100%; margin-left: 0; } }
+/* Die-cut editorial cards with an engraved inset and a second paper layer. */
+.interest-card {
+  --paper: #e3d6bc;
+  padding: 48px 25px 35px;
+  min-height: 195px;
+  background: none;
+  filter: drop-shadow(0 10px 9px #0005);
+  transition: transform .4s ease, filter .4s ease;
+}
+.interest-card::before {
+  inset: 0; border: 0; border-radius: 0;
+  clip-path: polygon(9% 0,90% 0,100% 15%,100% 86%,93% 100%,3% 100%,0 94%,0 12%);
+  background-color: var(--paper);
+  background-image: radial-gradient(ellipse at var(--light-x, 15%) var(--light-y, 0%), #fff7de80, transparent 65%), repeating-linear-gradient(0deg, #4a392808 0 1px, transparent 1px 4px);
+}
+.interest-card::after {
+  content: ""; display: block; position: absolute; z-index: -2;
+  inset: 8px -5px -6px 7px; width: auto; height: auto;
+  transform: rotate(1.4deg); border: 1px solid #a98b635c;
+  background: #746147; border-radius: 2px;
+  clip-path: polygon(8% 0,91% 0,100% 17%,100% 88%,91% 100%,0 100%,0 10%);
+}
+.interest-column--right .interest-card::after { left: 7px; right: -5px; transform: rotate(-1.4deg); }
+.interest-card--math { --paper: #d5ceb7; }
+.interest-card--shield { --paper: #dcc5b8; }
+.interest-card--calendar { --paper: #e5d9c4; }
+.interest-card--bulb { --paper: #d4cebf; }
+.card-engraving { position: absolute; inset: 7px; width: calc(100% - 14px); height: calc(100% - 14px); stroke: #79624360; stroke-width: .8; pointer-events: none; }
+.engraving-outline { stroke-dasharray: 1; stroke-dashoffset: 0; }
+.engraving-fold { fill: #997a4d25; stroke: #987c4e70; }
+.card-category { position: absolute; left: 33px; top: 20px; font-size: 7px; letter-spacing: 2.5px; color: #78644d; }
+.interest-number { display: none; }
+.interest-icon { border: 1px solid #6d573675; border-radius: 50%; background: #aa86511a; box-shadow: inset 0 0 0 3px #e9ddc780, 0 3px 7px #51412815; width: 42px; height: 42px; }
+.interest-card h3 { font-weight: 500; letter-spacing: -.7px; }
+.card-scribble { bottom: 17px; right: 26px; width: 44px; stroke: #a35238; }
+.interest-arrow { stroke: #be9680; opacity: .8; }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .interest-card:hover { transform: translateY(-6px) rotate(0deg); filter: drop-shadow(0 17px 15px #0007); }
+  .interest-card:hover .engraving-outline { animation: trace-card 1.2s ease both; stroke: #ae6a48; }
+  .identity-portrait { transition: transform .6s ease, box-shadow .6s ease; }
+  .identity-portrait:hover { transform: rotate(-2deg) translateY(-3px); box-shadow: 0 22px 38px #0007; }
+}
+@keyframes trace-card { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@media (max-width: 760px) { .interest-card { padding: 44px 22px 34px; min-height: 0; }.card-category { left: 28px; }.interest-icon { margin-bottom: 12px; } }
+@media (prefers-reduced-motion: reduce) { .interest-card { transition: none; } }

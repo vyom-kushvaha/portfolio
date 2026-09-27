@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 140" fill="none">
+  <!-- Only the front of the band: the opening and rear edge live behind the M. -->
+  <defs>
+    <linearGradient id="band" x1="28" y1="96" x2="131" y2="125" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#bb8878"/>
+      <stop offset=".45" stop-color="#f6deca"/>
+      <stop offset="1" stop-color="#c39583"/>
+    </linearGradient>
+  </defs>
+  <g stroke="#322620" stroke-width="1.8" stroke-linejoin="round">
+    <path d="M27 97Q80 78 133 97L131 117Q80 101 29 117Z" fill="url(#band)"/>
+    <path d="M27 97Q80 78 133 97M28 102Q80 84 132 102M29 113Q80 97 131 113" stroke="#fff0da" stroke-width="2.4"/>
+    <path d="M29 118Q80 102 131 118" stroke="#c89f8a" stroke-width="3"/>
+    <g fill="#49312d" stroke="#e9c6ab" stroke-width="1">
+      <path d="m72 99 8-4 8 4-8 5Z"/>
+      <ellipse cx="50" cy="103" rx="5" ry="2.7" transform="rotate(-9 50 103)"/>
+      <ellipse cx="110" cy="103" rx="5" ry="2.7" transform="rotate(9 110 103)"/>
+    </g>
+    <g fill="#fff0da" stroke="none">
+      <circle cx="36" cy="107" r="1.5"/><circle cx="64" cy="100" r="1.5"/>
+      <circle cx="96" cy="100" r="1.5"/><circle cx="124" cy="107" r="1.5"/>
+    </g>
+  </g>
+</svg>
