@@ -1,48 +1,355 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import scene from "./assets/skills/workbench-scene.webp";
 import "./skills.css";
 
-const groups = [
-  ["Languages", [["C", "C", "#397ab1"], ["C++", "C++", "#2474a2"], ["JavaScript", "JS", "#af8619"]]],
-  ["Frontend", [["HTML", "5", "#cc5933"], ["CSS", "3", "#396ec0"], ["JavaScript", "JS", "#af8619"]]],
-  ["Backend", [["Node.js", "N", "#4c7542"], ["Express.js", "ex", "#38382f"]]],
-  ["Data", [["PostgreSQL", "PG", "#397599"], ["SQL", "SQL", "#397599"]]],
-  ["Development", [["Git", "git", "#c2563d"], ["GitHub", "GH", "#292b27"], ["Linux", "LX", "#716649"]]],
+const toolkit = [
+  "HTML / CSS",
+  "JavaScript",
+  "Node.js + Express.js",
+  "REST APIs",
+  "C / C++",
+  "SQL / Relational Databases",
 ];
-const systems = ["Data Structures", "Object-oriented Programming", "Database Management Systems", "Operating Systems", "Computer Networks", "Cybersecurity Fundamentals"];
-const exploring = ["DSA & Problem Solving", "Backend & Systems", "Networking & Security", "Cybersecurity"];
-function SketchIcon({ index }) {
-  const paths = ["M12 3v6M5 15v-4h14v4M9 2h6v5H9ZM2 16h6v5H2Zm14 0h6v5h-6Z", "m12 2 9 5v10l-9 5-9-5V7Zm-9 5 9 5 9-5m-9 5v10", "M3 6c0-5 18-5 18 0s-18 5-18 0Zm0 0v12c0 5 18 5 18 0V6M3 12c0 5 18 5 18 0", "M2 3h20v14H2Zm6 19h8m-4-5v5", "M9 9h6v6H9Zm3-7v7m0 6v7M2 12h7m6 0h7M5 5l4 4m6 6 4 4m0-14-4 4m-6 6-4 4", "m12 2 9 4v6c0 6-9 10-9 10S3 18 3 12V6Zm-5 9 3 3 7-7"];
-  return <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d={paths[index % paths.length]} /></svg>;
+const focus = [
+  ["C++ + DSA", "Problem solving"],
+  ["Backend / Full-stack", "Building deeper"],
+  ["DBMS", "Strengthening foundations"],
+  ["Cybersecurity", "Learning & exploring"],
+];
+const practice = [
+  ["Arrays", "practising"],
+  ["Stacks", "practising"],
+  ["Queues", "practising"],
+  ["Linked Lists", "improving"],
+  ["Trees / BST", "learning"],
+  ["Graphs", "next"],
+];
+const database = [
+  "Keys & relationships",
+  "SQL queries & joins",
+  "Normalization",
+  "Transactions / ACID",
+  "Indexing",
+  "Database design",
+  "Query optimization → next",
+];
+function Tree() {
+  return (
+    <svg
+      className="bench-tree"
+      viewBox="0 0 180 80"
+      aria-hidden="true"
+      fill="none"
+    >
+      <path d="m90 10-45 25m45-25 45 25M45 35 20 65m25-30 25 30m65-30-25 30m25-30 25 30" />
+      {[
+        [90, 10],
+        [45, 35],
+        [135, 35],
+        [20, 65],
+        [70, 65],
+        [110, 65],
+        [160, 65],
+      ].map(([x, y]) => (
+        <circle key={x} cx={x} cy={y} r="7" />
+      ))}
+    </svg>
+  );
 }
 export default function Skills() {
-  return <section id="skills" className="skills-section" aria-labelledby="skills-title">
-    <div className="skills-layout">
-      <header className="skills-intro">
-        <p className="skills-eyebrow">SKILLS</p>
-        <h2 id="skills-title">Tools.<br />Systems.<br />Curiosity.</h2>
-        <svg className="skills-underline" viewBox="0 0 230 20" aria-hidden="true"><path d="M2 14Q115 1 226 5M18 18 181 9" /></svg>
-        <p className="skills-summary">What I use. What I understand.<br />What I’m exploring.</p>
-        <svg className="skills-star" viewBox="0 0 60 70" fill="none" aria-hidden="true"><path d="M30 2v65M4 35h52M19 23l22 24m0-24L19 47m11-22 3 10-3 10-3-10Z" /></svg>
-        <p className="skills-handwritten">Same curiosity.<br /><span>Different paths.</span></p>
-      </header>
-      <article className="skill-paper skill-paper--tools">
-        <span className="skill-number">01</span><h3>Tools.</h3><p className="skill-subtitle">What I use to build.</p>
-        {groups.map(([label, items]) => <div className="skill-group" key={label}><h4>{label}</h4><ul className="tool-list">{items.map(([name, short, color]) => <li key={name}><svg viewBox="0 0 44 44" aria-hidden="true" style={{color}}><path d="m22 2 18 10v20L22 42 4 32V12Z" fill="currentColor"/><text x="22" y="27" textAnchor="middle" fill="#fff9ec" fontSize={short.length > 2 ? 12 : 16} fontWeight="600">{short}</text></svg><span>{name}</span></li>)}</ul></div>)}
-      </article>
-      <article className="skill-paper skill-paper--systems">
-        <span className="skill-number">02</span><h3>Systems.</h3><p className="skill-subtitle">What I understand.</p>
-        <ul className="concept-list">{systems.map((name,index) => <li key={name}><SketchIcon index={index}/><span>{name}</span></li>)}</ul>
-        <p className="paper-note">Beyond syntax—<br />understanding what<br />happens underneath.</p>
-      </article>
-      <article className="skill-paper skill-paper--curiosity">
-        <span className="skill-number">03</span><h3>Curiosity.</h3><p className="skill-subtitle">What I’m exploring.</p>
-        <ul className="concept-list">{exploring.map((name,index) => <li key={name}><SketchIcon index={[0,3,4,5][index]}/><span>{name}</span></li>)}</ul>
-        <p className="paper-note">Keep exploring.<br />Keep learning.</p>
-      </article>
-      <nav className="skill-profile-strip" aria-label="Temporary profile links">
-        <span className="profile-caption">FIND ME EXPLORING</span>
-        {[["GitHub","https://github.com/"],["LeetCode","https://leetcode.com/"],["CodeChef","https://www.codechef.com/"],["LinkedIn","https://www.linkedin.com/"]].map(([name,url]) => <a key={name} href={url} target="_blank" rel="noreferrer" title={`${name} — temporary link`}>{name}<span aria-hidden="true">↗</span></a>)}
-      </nav>
-    </div>
-  </section>;
+  const section = useRef(null);
+  const dialog = useRef(null);
+  const notesTrigger = useRef(null);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          section.current.classList.add("bench-visible");
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.08 },
+    );
+    observer.observe(section.current);
+    const frame =
+      location.hash === "#skills"
+        ? requestAnimationFrame(() =>
+            section.current.scrollIntoView({ block: "start" }),
+          )
+        : null;
+    return () => {
+      observer.disconnect();
+      if (frame !== null) cancelAnimationFrame(frame);
+    };
+  }, []);
+  function openNotes() {
+    dialog.current.showModal();
+  }
+  function closeNotes() {
+    dialog.current.close();
+  }
+  return (
+    <section
+      className="bench"
+      id="skills"
+      ref={section}
+      aria-labelledby="skills-title"
+    >
+      <div className="bench-stage" style={{ "--scene": `url(${scene})` }}>
+        <img
+          className="bench-art"
+          src={scene}
+          width="1536"
+          height="1024"
+          alt=""
+          loading="lazy"
+          decoding="async"
+        />
+        <header className="bench-intro">
+          <p className="bench-label">
+            03 / SKILLS <span aria-hidden="true" />
+          </p>
+          <h2 id="skills-title">
+            Inside the
+            <br />
+            <em>Workbench.</em>
+          </h2>
+          <p className="bench-description">
+            The tools I use, the concepts I explore,
+            <br />
+            and the skills I’m building —<br />
+            one problem at a time.
+          </p>
+          <p className="bench-hand">
+            Always learning.
+            <br />
+            Always building.
+          </p>
+          <svg
+            className="bench-arrow"
+            viewBox="0 0 100 50"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path d="M5 4c5 30 47 4 71 34m-13-4 14 5-3-14" />
+          </svg>
+        </header>
+
+        <article className="bench-laptop" aria-labelledby="focus-heading">
+          <div className="bench-editor" aria-hidden="true">
+            <span>main.cpp</span>
+            <pre>
+              <span>// solve one problem at a time</span>
+              {"\n\n"}int main() &#123;{"\n"} int sum = 0;{"\n"} for (int n :
+              &#123;1, 2, 3&#125;){"\n"} sum += n;{"\n\n"} // dry run: 1 → 3 → 6
+              {"\n"} return 0;{"\n"}&#125;
+            </pre>
+            <p>
+              ❯ g++ main.cpp
+              <br />❯ ./a.out <i className="bench-cursor" />
+            </p>
+          </div>
+          <div className="bench-focus">
+            <p className="bench-label">PRACTISING / STRENGTHENING</p>
+            <h3 id="focus-heading">Current focus</h3>
+            <ol>
+              {focus.map(([name, state], i) => (
+                <li key={name}>
+                  <span>0{i + 1}</span>
+                  <div>
+                    <h4>{name}</h4>
+                    <p>{state}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </article>
+
+        <article className="bench-build" aria-labelledby="build-heading">
+          <h3 className="bench-label" id="build-heading">
+            TOOLS I BUILD WITH
+          </h3>
+          <ul>
+            {toolkit.map((name, i) => (
+              <li key={name} style={{ "--spine": i }}>
+                <span>{name}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="bench-network-book">
+            + Computer Networking <small>fundamentals</small>
+          </p>
+        </article>
+
+        <article className="bench-notebook" aria-labelledby="practice-heading">
+          <div className="bench-practice">
+            <h3 id="practice-heading">Practice notes</h3>
+            <p className="bench-label">DSA / A WORK IN PROGRESS</p>
+            <ul>
+              {practice.map(([name, state]) => (
+                <li key={name}>
+                  <span>{name}</span>
+                  <span>
+                    {state} {state === "next" ? "⇢" : "·"}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="bench-scratch">
+            <p className="bench-hand">why does this work?</p>
+            <div className="bench-array" aria-label="Example array: 1, 3, 5, 7">
+              {[1, 3, 5, 7].map((n) => (
+                <span key={n}>{n}</span>
+              ))}
+            </div>
+            <Tree />
+            <p className="bench-complexity">O(1) / O(n) / O(log n)</p>
+            <p className="bench-hand bench-attempt">
+              <s>code first</s> → dry run
+            </p>
+            <svg
+              className="bench-crown"
+              viewBox="0 0 50 30"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path d="m7 24-3-17 13 8 8-12 8 12 13-8-3 17Z" />
+            </svg>
+          </div>
+        </article>
+
+        <article className="bench-db" aria-labelledby="db-heading">
+          <p className="bench-label">STRENGTHENING / DBMS</p>
+          <h3 id="db-heading">Beneath the query.</h3>
+          <ol>
+            {database.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ol>
+          <p className="bench-hand">connecting the dots…</p>
+        </article>
+
+        <article className="bench-security" aria-labelledby="security-heading">
+          <p className="bench-label">EXPLORING</p>
+          <h3 id="security-heading">Cybersecurity</h3>
+          <p className="bench-security-sub">A security mindset.</p>
+          <p className="bench-label">FOUNDATIONS</p>
+          <p>
+            Networking · Linux
+            <br />
+            Web & OS basics · CIA Triad
+          </p>
+          <p className="bench-label">MOVING TOWARD</p>
+          <p>
+            OWASP · Web security
+            <br />
+            Auth & sessions · Burp Suite
+          </p>
+          <button
+            ref={notesTrigger}
+            type="button"
+            onClick={openNotes}
+            aria-haspopup="dialog"
+          >
+            Open my learning notes <span aria-hidden="true">↗</span>
+          </button>
+        </article>
+
+        <aside className="bench-kit" aria-label="Everyday tools">
+          <p className="bench-label">THE EVERYDAY KIT</p>
+          <ul>
+            {[
+              "Git",
+              "GitHub",
+              "VS Code",
+              "Postman",
+              "Linux Terminal / CLI",
+              "npm",
+            ].map((tool) => (
+              <li key={tool}>{tool}</li>
+            ))}
+          </ul>
+        </aside>
+        <aside
+          className="bench-network"
+          aria-label="Networking and system foundations"
+        >
+          <p className="bench-label">SYSTEM FOUNDATIONS</p>
+          <p className="bench-connection">
+            Client <span>→</span> HTTP <span>→</span> Server
+          </p>
+          <p>
+            IP · DNS · ports · protocols
+            <br />
+            Routing · files & permissions
+            <br />
+            Processes · OS basics
+          </p>
+        </aside>
+      </div>
+      <dialog
+        className="bench-dialog"
+        ref={dialog}
+        aria-labelledby="learning-notes-title"
+        onClose={() => notesTrigger.current?.focus()}
+        onClick={(event) => {
+          if (event.target === event.currentTarget) closeNotes();
+        }}
+      >
+        <div className="bench-dialog-content">
+          <button
+            type="button"
+            className="bench-close"
+            onClick={closeNotes}
+            aria-label="Close learning notes"
+          >
+            ×
+          </button>
+          <p className="bench-label">CYBERSECURITY / FIELD NOTES</p>
+          <h3 id="learning-notes-title">
+            A curious mind.
+            <br />
+            <em>A long way to go.</em>
+          </h3>
+          <div className="bench-notes-columns">
+            <div>
+              <h4>Foundations I understand</h4>
+              <ul>
+                {[
+                  "CIA Triad",
+                  "Hacker types & common attack types",
+                  "Threat / vulnerability / risk",
+                  "Reconnaissance basics",
+                  "Computer networking fundamentals",
+                  "Linux & operating systems basics",
+                ].map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h4>Moving toward / exploring</h4>
+              <ul>
+                {[
+                  "Web application security & OWASP concepts",
+                  "HTTP in depth · authentication & sessions",
+                  "Burp Suite & VAPT methodology",
+                  "Linux for security & network security",
+                  "Deeper recon methodology",
+                  "Vulnerability assessment & security testing",
+                ].map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          <p className="bench-hand">
+            Building foundations, one question at a time.
+          </p>
+        </div>
+      </dialog>
+    </section>
+  );
 }

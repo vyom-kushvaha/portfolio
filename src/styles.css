@@ -103,6 +103,12 @@ button {
   gap: 12px;
   color: #e9c9c1;
 }
+.header nav a[aria-current="location"] {
+  color: #ff897d;
+  text-decoration: underline;
+  text-underline-offset: 7px;
+  text-decoration-thickness: 1px;
+}
 .nav-line {
   margin: 0 -3px 0 15px;
 }

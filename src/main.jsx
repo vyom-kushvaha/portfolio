@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import "./styles.css";
 import wordmark from "./assets/vyom-kushvaha.svg";
@@ -51,6 +51,16 @@ function Icon({ type }) {
 }
 
 function Header() {
+  const [activeSection, setActiveSection] = useState("");
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) setActiveSection(entry.target.id);
+      }
+    }, { rootMargin: "-10% 0px -60% 0px", threshold: 0 });
+    document.querySelectorAll("#home > section[id], #home > .hero").forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
   return (
     <header className="header">
       <a className="brand" href="#home" aria-label="Vyom Kushvaha home">
@@ -62,7 +72,7 @@ function Header() {
       </span>
       <nav aria-label="Main navigation">
         {["About", "Projects", "Skills", "Contact"].map((item) => (
-          <PortfolioLink key={item} destination={item.toLowerCase()}>
+          <PortfolioLink key={item} destination={item.toLowerCase()} aria-current={activeSection === item.toLowerCase() ? "location" : undefined}>
             {item}
           </PortfolioLink>
         ))}
