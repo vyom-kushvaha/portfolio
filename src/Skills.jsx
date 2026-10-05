@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import scene from "./assets/skills/workbench-scene.webp";
 import "./skills.css";
+import MobileWorkbench from "./MobileWorkbench.jsx";
 
 const toolkit = [
   "HTML / CSS",
@@ -60,6 +61,7 @@ export default function Skills() {
   const section = useRef(null);
   const dialog = useRef(null);
   const notesTrigger = useRef(null);
+  const returnFocus = useRef(null);
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -82,7 +84,8 @@ export default function Skills() {
       if (frame !== null) cancelAnimationFrame(frame);
     };
   }, []);
-  function openNotes() {
+  function openNotes(event) {
+    returnFocus.current = event?.currentTarget ?? notesTrigger.current;
     dialog.current.showModal();
   }
   function closeNotes() {
@@ -289,11 +292,12 @@ export default function Skills() {
           </p>
         </aside>
       </div>
+      <MobileWorkbench openNotes={openNotes} />
       <dialog
         className="bench-dialog"
         ref={dialog}
         aria-labelledby="learning-notes-title"
-        onClose={() => notesTrigger.current?.focus()}
+        onClose={() => returnFocus.current?.focus()}
         onClick={(event) => {
           if (event.target === event.currentTarget) closeNotes();
         }}

@@ -1,0 +1,549 @@
+/* Desktop is locked: this namespace is hidden outside the dedicated small-screen range.
+   No existing desktop declaration is overridden at >=1024px. */
+.mobile-workbench {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .bench > .bench-stage {
+    display: none;
+  }
+  .mobile-workbench {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+    max-width: 740px;
+    margin: auto;
+    padding: max(48px, env(safe-area-inset-top))
+      max(20px, env(safe-area-inset-left))
+      max(48px, env(safe-area-inset-bottom))
+      max(20px, env(safe-area-inset-right));
+    background:
+      radial-gradient(ellipse at 98% 6%, #a1692a24, transparent 22%),
+      linear-gradient(#11131324, #11131348),
+      url("./assets/skills/mobile-wall.webp") repeat;
+    color: #f2eee5;
+    font:
+      15px/1.65 Inter,
+      Arial,
+      sans-serif;
+    isolation: isolate;
+  }
+  .mobile-workbench *,
+  .mobile-workbench *::before,
+  .mobile-workbench *::after {
+    box-sizing: border-box;
+  }
+  .mobile-workbench h2,
+  .mobile-workbench h3,
+  .mobile-workbench h4,
+  .mobile-workbench p {
+    margin: 0;
+  }
+  .mobile-workbench ul,
+  .mobile-workbench ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .mobile-workbench .mw-label {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font:
+      600 10px/1.5 Inter,
+      Arial,
+      sans-serif;
+    letter-spacing: 0.17em;
+    margin: 0 0 18px;
+  }
+  .mw-label > span {
+    width: 35px;
+    height: 1px;
+    background: var(--coral);
+  }
+  .mobile-workbench .mw-hand {
+    font:
+      26px/1.1 Caveat,
+      cursive;
+    color: var(--coral);
+  }
+  .mw-intro {
+    position: relative;
+    padding-top: 16px;
+  }
+  .mw-lamp {
+    position: absolute;
+    z-index: -1;
+    width: 144px;
+    height: auto;
+    right: -20px;
+    top: -40px;
+    opacity: 0.7;
+    mask-image:
+      linear-gradient(90deg, transparent, #000 35%),
+      linear-gradient(#000 70%, transparent);
+    mask-composite: intersect;
+    pointer-events: none;
+  }
+  .mobile-workbench .mw-intro h2 {
+    font:
+      normal clamp(48px, 13vw, 76px)/1.02 Georgia,
+      serif;
+    letter-spacing: -0.045em;
+    margin: 24px 0;
+  }
+  .mw-intro em {
+    font-style: normal;
+    color: var(--coral);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 8px;
+  }
+  .mobile-workbench .mw-description {
+    font:
+      15px/1.75 Inter,
+      Arial,
+      sans-serif;
+    color: #d0c8be;
+    max-width: 380px;
+  }
+  .mobile-workbench .mw-always {
+    margin: 26px 0 0 4px;
+    transform: rotate(-4deg);
+  }
+  .mw-always > span {
+    display: inline-block;
+    font-size: 40px;
+    margin-left: 25px;
+  }
+  /* A single column screen replaces the tiny desktop split editor.
+     The still-life keeps its native aspect ratio, never a scaled canvas. */
+  .mw-laptop {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .mw-laptop > img {
+    display: block;
+    width: 100%;
+    height: 68px;
+    object-fit: cover;
+    object-position: bottom;
+    margin-top: -3px;
+    mask-image: linear-gradient(#000 90%, transparent);
+  }
+  .mw-screen {
+    position: relative;
+    width: 85%;
+    margin: auto;
+    padding: 16px 14px;
+    background: #111411;
+    border: 7px solid #323530;
+    border-radius: 12px 12px 4px 4px;
+    box-shadow:
+      0 0 0 1px #6e6a5f,
+      0 8px 22px #0008;
+  }
+  .mobile-workbench .mw-screen h3 {
+    font:
+      25px/1.1 Caveat,
+      cursive;
+    color: var(--coral);
+    margin-bottom: 5px;
+  }
+  .mw-screen li {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 9px 0;
+    border-top: 1px solid #34392f;
+  }
+  .mw-screen li > span {
+    color: var(--coral);
+    font: 20px/1 monospace;
+    width: 22px;
+    flex-shrink: 0;
+  }
+  .mobile-workbench .mw-screen h4 {
+    font:
+      500 15px/1.25 Inter,
+      Arial,
+      sans-serif;
+  }
+  .mobile-workbench .mw-screen li p {
+    font:
+      13px/1.4 Inter,
+      Arial,
+      sans-serif;
+    color: #c4bcb1;
+  }
+  .mw-build {
+    min-width: 0;
+  }
+  .mw-books {
+    background: url("./assets/skills/mobile-books.webp") center / 100% 100%
+      no-repeat;
+    aspect-ratio: 427/314;
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+    padding: 5% 0 3% !important;
+  }
+  .mw-books li {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 0 15% 0 8%;
+    font:
+      15px/1.2 Georgia,
+      serif;
+    text-shadow: 0 1px 2px #0006;
+  }
+  .mw-books li:nth-child(3),
+  .mw-books li:nth-child(6) {
+    color: #292b25;
+    text-shadow: none;
+  }
+  .mw-book-icon {
+    display: inline-grid;
+    place-items: center;
+    width: 25px;
+    flex-shrink: 0;
+    font: bold 16px/1 monospace;
+    color: var(--coral);
+  }
+  .mw-book-icon-1 {
+    color: #edc653;
+  }
+  .mw-book-icon-2,
+  .mw-book-icon-5 {
+    color: #303b32;
+  }
+  .mw-book-icon-4 {
+    color: #91b9dd;
+  }
+  .mobile-workbench .mw-network-book {
+    width: 96%;
+    margin: -3px auto 0;
+    background:
+      linear-gradient(0deg, #080a09c9, #222723d9),
+      url("./assets/skills/mobile-dark-paper.webp");
+    box-shadow:
+      0 6px 5px #0007,
+      inset 4px 0 #b4a38b;
+    border: 1px solid #4b493f;
+    padding: 13px 15px;
+    font:
+      15px/1.2 Georgia,
+      serif;
+  }
+  .mw-network-book > span {
+    color: var(--coral);
+    margin-right: 8px;
+  }
+  .mobile-workbench .mw-tools-note {
+    margin: 22px 0 0;
+    text-align: right;
+    font-size: 24px;
+    transform: rotate(-3deg);
+  }
+  .mw-notebook {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    position: relative;
+    color: #353429;
+    background: url("./assets/skills/mobile-paper.webp") center/cover;
+    border-radius: 6px 10px 6px 6px;
+    border-bottom: 8px solid #1c1b17;
+    box-shadow:
+      0 10px 18px #0009,
+      inset 0 -4px #bda98d;
+    padding: 24px 12px;
+    gap: 28px;
+  }
+  .mw-notebook::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: calc(50% - 11px);
+    width: 22px;
+    background: url("./assets/skills/mobile-binding.webp") center top / 22px
+      auto repeat-y;
+    box-shadow: 3px 0 8px #675c4344;
+  }
+  .mw-notebook-left,
+  .mw-notebook-right {
+    min-width: 0;
+    background: repeating-linear-gradient(
+      transparent 0 27px,
+      #8e7b541c 27px 28px
+    );
+  }
+  .mobile-workbench .mw-paper-label {
+    font:
+      600 9px/1.55 Inter,
+      Arial,
+      sans-serif;
+    letter-spacing: 0.1em;
+    margin-bottom: 18px;
+  }
+  .mw-notebook li {
+    font:
+      15px/1.55 Inter,
+      Arial,
+      sans-serif;
+    padding: 4px 0;
+    display: flex;
+    gap: 6px;
+  }
+  .mw-notebook li span {
+    color: #995f48;
+  }
+  .mobile-workbench .mw-notebook .mw-hand {
+    color: #9e5d4b;
+    font-size: 21px;
+    margin: 16px 0 6px;
+  }
+  .mw-notebook-right {
+    text-align: center;
+  }
+  .mobile-workbench .mw-notebook-right > .mw-hand:first-child {
+    margin-top: 0;
+  }
+  .mw-array {
+    display: flex;
+    margin: 17px auto;
+    max-width: 140px;
+    font: 14px/1.4 monospace;
+  }
+  .mw-array span {
+    flex: 1;
+    border: 1px solid #8e8063;
+    padding: 2px;
+  }
+  .mw-array span + span {
+    border-left: 0;
+  }
+  .mw-tree {
+    width: 100%;
+    height: auto;
+    stroke: #696750;
+    stroke-width: 1.4;
+    display: block;
+    margin: 15px auto;
+  }
+  .mobile-workbench .mw-complexity {
+    font: 14px/1.5 monospace;
+  }
+  .mw-papers {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 36px;
+  }
+  .mw-paper {
+    position: relative;
+    padding: 32px 26px;
+    box-shadow: 0 10px 18px #0006;
+  }
+  .mw-paper::before {
+    content: "";
+    position: absolute;
+    width: 60px;
+    height: 23px;
+    left: calc(50% - 30px);
+    top: -9px;
+    background: #92846b55;
+    transform: rotate(-5deg);
+    border: 1px solid #d0c7b018;
+  }
+  .mw-db {
+    background: #dfd5c0 url("./assets/skills/mobile-paper.webp") center/cover;
+    color: #32342b;
+    transform: rotate(-0.6deg);
+  }
+  .mobile-workbench .mw-paper h3 {
+    font:
+      30px/1.15 Georgia,
+      serif;
+    letter-spacing: -0.04em;
+    margin-bottom: 18px;
+  }
+  .mw-paper li {
+    font:
+      15px/1.55 Inter,
+      Arial,
+      sans-serif;
+    padding: 4px 0 4px 17px;
+    position: relative;
+  }
+  .mw-paper li::before {
+    content: "·";
+    position: absolute;
+    left: 0;
+    color: #a96e56;
+  }
+  .mw-db li {
+    border-left: 1px dashed #998168;
+    padding-left: 18px;
+  }
+  .mw-db li::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border: 1px solid #9b6650;
+    background: #d9ccaf;
+    border-radius: 50%;
+    left: -3px;
+    top: 12px;
+  }
+  .mobile-workbench .mw-db > .mw-hand {
+    color: #885444;
+    margin-top: 20px;
+  }
+  .mw-security {
+    background: #20221f url("./assets/skills/mobile-dark-paper.webp")
+      center/cover;
+    transform: rotate(0.6deg);
+  }
+  .mw-security .mw-paper-label,
+  .mw-security h4 {
+    color: #d6a992;
+  }
+  .mobile-workbench .mw-security h4 {
+    font:
+      600 10px/1.5 Inter,
+      Arial,
+      sans-serif;
+    letter-spacing: 0.12em;
+    margin: 22px 0 8px;
+  }
+  .mobile-workbench .mw-security h3 {
+    margin-bottom: 8px;
+  }
+  .mw-security button {
+    font:
+      15px/1.4 Caveat,
+      cursive;
+    font-size: 24px;
+    color: var(--coral);
+    border-bottom: 1px solid #a3735966;
+    min-height: 44px;
+    margin-top: 20px;
+    text-align: left;
+    background: none;
+    cursor: pointer;
+  }
+  .mw-kit {
+    padding: 4px 0 20px;
+    border-bottom: 1px solid #514b41;
+  }
+  .mw-kit ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 20px;
+  }
+  .mw-kit li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font:
+      13px/1.4 Inter,
+      Arial,
+      sans-serif;
+  }
+  .mw-kit li > span {
+    font: bold 24px/1 monospace;
+    color: var(--coral);
+  }
+  .mw-kit svg {
+    display: block;
+    width: 24px;
+    height: 24px;
+  }
+  .mw-kit li:nth-child(2) > span {
+    color: #f2eee5;
+  }
+  .mw-kit li:nth-child(3) > span {
+    color: #65add7;
+  }
+  .mw-kit li:nth-child(4) > span {
+    color: #e89b67;
+  }
+  .mobile-workbench button:focus-visible {
+    outline: 2px solid var(--coral);
+    outline-offset: 5px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .mobile-workbench {
+    gap: 48px;
+    padding: 56px 34px;
+  }
+  .mw-laptop {
+    max-width: 520px;
+  }
+  .mw-screen {
+    padding: 16px 24px;
+  }
+  .mw-screen li {
+    padding: 12px 0;
+  }
+  .mobile-workbench .mw-screen h3 {
+    font-size: 32px;
+  }
+  .mobile-workbench .mw-screen h4 {
+    font-size: 18px;
+  }
+  .mobile-workbench .mw-screen li p {
+    font-size: 15px;
+  }
+  .mw-build {
+    max-width: 500px;
+    width: 100%;
+    margin: auto;
+  }
+  .mw-books li {
+    font-size: 21px;
+  }
+  .mw-notebook {
+    padding: 32px;
+    gap: 50px;
+  }
+  .mw-notebook li {
+    font-size: 18px;
+    padding: 6px 0;
+  }
+  .mw-papers {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+    align-items: start;
+  }
+  .mw-paper {
+    padding: 30px 22px;
+  }
+}
+
+@media (max-width: 374px) {
+  .mobile-workbench {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .mobile-workbench .mw-intro h2 {
+    font-size: 12.7vw;
+  }
+  .mw-screen {
+    width: 90%;
+    padding: 14px 10px;
+  }
+  .mw-notebook {
+    gap: 24px;
+    padding: 22px 9px;
+  }
+  .mw-notebook li {
+    font-size: 14px;
+  }
+}
